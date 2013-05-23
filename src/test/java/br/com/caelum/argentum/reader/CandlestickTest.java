@@ -7,6 +7,12 @@ import org.junit.Test;
 import br.com.caelum.argentum.Candlestick;
 
 public class CandlestickTest {
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void precoMaximoNaoPodeSerMenorQueMinimo(){
+		Calendar c = Calendar.getInstance();
+		new Candlestick(10, 20, 20, 10, 10000, c);
+	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void naoCriaCandlestickComDataNula() {
